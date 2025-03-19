@@ -9,32 +9,32 @@
 //class MyClass3 {
 //private:
 //    int id;
-//    char* name;
+//    char* name;     // 동적 할당된 학생 이름을 저장할 포인터
 //    int age;
 //
 //public:
-//    MyClass3(int c_id, const char* c_name, int c_age) {
-//        id = c_id;
+//    MyClass3(int c_id, const char* c_name, int c_age) {     // 생성자
+//        id = c_id;  // id 초기화
 //
-//        name = new char[strlen(c_name) + 1];
-//        strcpy(name, c_name);
+//        name = new char[strlen(c_name) + 1];    // name에 대해 동적 할당: c_name 문자열 길이 +1(종료 문자 포함) 만큼 메모리 할당
+//        strcpy(name, c_name);   // c_name 문자열을 name에 복사
 //
-//        age = c_age;
+//        age = c_age;    // age 초기화
 //    }
-//
+//    // 소멸자: 객체가 삭제될 때 호출되어 동적으로 할당된 메모리를 해제
 //    ~MyClass3() {
-//        delete[] name;
+//        delete[] name;  // 동적으로 할당한 name 배열 메모리 해제
 //    }
 //
-//    void setData(int l_id, const char* l_name, int l_age) {
-//        id = l_id;
+//    void setData(int l_id, const char* l_name, int l_age) { // 객체의 멤버 변수에 새로운 값 할당
+//        id = l_id;  // id 갱신
 //
-//        delete[] name;
+//        delete[] name;  // 기존 name 메모리 해제
 //
-//        name = new char[strlen(l_name) + 1];
-//        strcpy(name, l_name);
+//        name = new char[strlen(l_name) + 1];    // 새로운 이름에 맞는 크기로 메모리 동적 할당
+//        strcpy(name, l_name);   // 새로운 이름 문자열 복사
 //
-//        age = l_age;
+//        age = l_age;    // age 갱신
 //    }
 //
 //    void getData() {
@@ -44,10 +44,10 @@
 //};
 //
 //int main() {
-//    MyClass3 obj(1, "김철수", 20);
+//    MyClass3 obj(1, "김철수", 20); // MyClass3 객체 생성 및 초기화
 //    obj.getData();
 //
-//    obj.setData(2, "김영희", 50);
+//    obj.setData(2, "김영희", 50);  // setData를 사용하여 객체의 데이터 변경
 //    obj.getData();
 //
 //    return 0;

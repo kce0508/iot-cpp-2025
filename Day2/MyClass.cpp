@@ -14,21 +14,21 @@
 //    char name[20];      // 학생 이름을 저장하는 문자 배열
 //    int age;
 //public:
-//    void setData(int c_id, const char* c_name, int c_age) {
-//        id = c_id;
+//    void setData(int c_id, const char* c_name, int c_age) {     // setData 함수: 학생의 정보를 입력받아 멤버 변수에 저장
+//        id = c_id;              // id에 c_id 값을 저장
 //        strcpy(name, c_name);   // 문자열 복사(c_name의 내용을 name 배열에 저장)
-//        age = c_age;
+//        age = c_age;            // age에 c_age 값을 저장
 //    }
 //
-//    void getData() {
+//    void getData() {            // getData 함수: 학생 정보를 출력
 //        cout << "id : " << id << ", name : " << name << ", age : " << age << endl;
 //    }
 //};
 //
 //int main() {
-//    MyClass obj;
-//    obj.setData(1, "김철수", 20);
-//    obj.getData();
+//    MyClass obj;    // MyClass 객체 obj 생성
+//    obj.setData(1, "김철수", 20);  // setData 함수 호출하여 데이터 설정
+//    obj.getData();  // getData 함수 호출하여 데이터 출력
 //
 //    return 0;
 //}
