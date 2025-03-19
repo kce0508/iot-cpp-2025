@@ -1,0 +1,48 @@
+/*
+
+*/
+//#include <iostream>
+//using namespace std;
+//
+////CTime now();
+//
+//class CTime {
+//private:
+//	int m_hour{ 0 };
+//	int m_min{ 0 };
+//	int m_sec{ 0 };
+//public:
+//	CTime() { cout << "기본 생성자 호출" << endl; }		// 디폴트 생성자
+//	CTime(int h, int m, int s) : m_hour(h), m_min(m), m_sec(s)	// 콜론 초기화, 이니셜 라이져 리스트
+//	{
+//		cout << "입력 3개 받는 생성자 호출" << endl;
+//		//m_hour = h;
+//		//m_min = m;
+//		//m_sec = s;
+//	}
+//	void setTime(int hour, int min, int sec) {
+//		m_hour = hour;
+//		m_min = min;
+//		m_sec = sec;
+//	}
+//	void showTime() const {
+//		printf("현재 시간은 %d:%d:%d 입니다\n", m_hour, m_min, m_sec);
+//	}
+//};
+//int main()
+//{
+//	//CTime now;
+//	CTime now = CTime();
+//	now.showTime();
+//	
+//	//CTime t(15, 30, 30);
+//	//CTime t = { 12, 12, 12 };
+//	CTime t{ 10,11,12 };
+//	t.showTime();
+//
+//	return 0;
+//}
+
+// 이니셜 라이저 리스트: c++에서 생성자의 초기화 목록
+// 멤버 변수를 효율적으로 초기화하고, 상수나 참조 타입의 멤버변수를 반드시 초기화해야할 때 유용
+// 상속클래스에서 부모클래스의 생성자를 호출할때도 이니셜라이저 리스트를 사용하여 부모 클래스의 멤버를 초기화할 수 있습니다.

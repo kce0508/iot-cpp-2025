@@ -68,3 +68,9 @@ pow - 제곱, 제곱근
     2. 멤버변수 - 속성, private 영역
     3. 멤버함수(메서드) - 기능, public 영역
 - 객체
+[c++]
+- Myclass 예제
+[c++](./Day2/MyClass.cpp)
+[c++](./Day2/MyClass2.cpp)
+[c++](./Day2/MyClass3.cpp)
+
