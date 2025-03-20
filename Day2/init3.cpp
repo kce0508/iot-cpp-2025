@@ -21,25 +21,25 @@
 //		//m_min = m;
 //		//m_sec = s;
 //	}
-//	void setTime(int hour, int min, int sec) {
+//	void setTime(int hour, int min, int sec) {		// 시간을 설정하는 멤버 함수
 //		m_hour = hour;
 //		m_min = min;
 //		m_sec = sec;
 //	}
-//	void showTime() const {
+//	void showTime() const {							// 현재 시간을 출력하는 멤버 함수 (const: 객체의 값을 변경하지 않음을 명시)
 //		printf("현재 시간은 %d:%d:%d 입니다\n", m_hour, m_min, m_sec);
 //	}
 //};
 //int main()
 //{
 //	//CTime now;
-//	CTime now = CTime();
-//	now.showTime();
+//	CTime now = CTime();		// 기본생성자로 초기화
+//	now.showTime();				// 현재 시간 출력(기본값: 0:0:0)
 //	
-//	//CTime t(15, 30, 30);
+//	//CTime t(15, 30, 30);		
 //	//CTime t = { 12, 12, 12 };
-//	CTime t{ 10,11,12 };
-//	t.showTime();
+//	CTime t{ 10,11,12 };		// 중괄호 초기화
+//	t.showTime();				// 현재시간 출력 (10:11:12)
 //
 //	return 0;
 //}
