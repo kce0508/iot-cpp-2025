@@ -223,3 +223,10 @@ pow - 제곱, 제곱근[c++](./Day1/)
 ```
 [c++](./Day3/moveCon.cpp)
 [c++](./Day3/moveCon2.cpp)
+- static
+[c++](./Day3/static.cpp)
+[c++](./Day3/static2.cpp)
+[c++](./Day3/static3.cpp)
+- 연산자 오버로딩
+[c++](./Day3/operator.cpp)
+[c++](./Day3/operator2.cpp)
