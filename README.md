@@ -223,10 +223,17 @@ pow - 제곱, 제곱근[c++](./Day1/)
 ```
 [c++](./Day3/moveCon.cpp)
 [c++](./Day3/moveCon2.cpp)
-- static
+- 클래스 내부의 static 멤버 변수
+    - 객체에 속하지 않고, 클래스 자체에 속함
+    - 모든 객체가 같은 static 변수 값을 공유함
+    - 객체 없이도 클래스명::변수명으로 접근 가능
+    - 반드시 클래스 외부에서 정의해야함
+- 클래스 내부의 static 멤버 함수
+    - static 멤버 함수는 객체 없이 호출 가능(클래스명::함수명())
+    - static 변수만 접근 가능(일반 멤버 변수는 접근 불가능)
 [c++](./Day3/static.cpp)
 [c++](./Day3/static2.cpp)
-[c++](./Day3/static3.cpp)
-- 연산자 오버로딩
+- static 예제 : [c++](./Day3/static3.cpp)
+- 연산자 오버로딩(Operator Overloading) : 
 [c++](./Day3/operator.cpp)
 [c++](./Day3/operator2.cpp)
