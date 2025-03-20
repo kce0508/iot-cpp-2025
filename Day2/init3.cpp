@@ -1,18 +1,19 @@
 /*
-
+	콜론 초기화 - 생성자에서 멤버 변수를 생성과 동시에 초기화 하는 방법
+	이니셜라이저 리스트를 사용할 때 사용되며, :(콜론)뒤에 초기화할 멤버 변수를 나열하는 방식
 */
 //#include <iostream>
 //using namespace std;
 //
 ////CTime now();
 //
-//class CTime {
+//class CTime {			// CTime 클래스 선언
 //private:
-//	int m_hour{ 0 };
-//	int m_min{ 0 };
-//	int m_sec{ 0 };
+//	int m_hour{ 0 };	// 시 멤버 변수, 기본값 0
+//	int m_min{ 0 };		// 분 멤버 변수, 기본값 0
+//	int m_sec{ 0 };		// 초 멤버 변수, 기본값 0
 //public:
-//	CTime() { cout << "기본 생성자 호출" << endl; }		// 디폴트 생성자
+//	CTime() { cout << "기본 생성자 호출" << endl; }		// 디폴트 생성자:객체 생성 시 특별한 값이 주어지지 않으면 기본값 (0, 0, 0) 사용
 //	CTime(int h, int m, int s) : m_hour(h), m_min(m), m_sec(s)	// 콜론 초기화, 이니셜 라이져 리스트
 //	{
 //		cout << "입력 3개 받는 생성자 호출" << endl;
