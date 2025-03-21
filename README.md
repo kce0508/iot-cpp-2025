@@ -234,6 +234,18 @@ pow - 제곱, 제곱근[c++](./Day1/)
 [c++](./Day3/static.cpp)
 [c++](./Day3/static2.cpp)
 - static 예제 : [c++](./Day3/static3.cpp)
-- 연산자 오버로딩(Operator Overloading) : 
+- 연산자 오버로딩(Operator Overloading) : c++에서 기존 연산자를 사용자 정의 클래스에서도 사용할 수 있도록 기능을 확장하는 기법
 [c++](./Day3/operator.cpp)
 [c++](./Day3/operator2.cpp)
+
+## 4일차
+- 연산자 오버로딩
+    1. 멤버 함수로 오버로딩
+    2. 프렌드 함수로 오버로딩
+    3. 다양한 연산자 오버로딩 예제
+    (1) == 연산자 오버로딩
+    (2) << 연산자 (출력) 오버로딩
+    (3) ++ 연산자 오버로딩(전위, 후위)
+[c++](./Day4/operator.cpp)
+[c++](./Day4/operator2.cpp)
+[c++](./Day4/operator3.cpp)
