@@ -249,3 +249,39 @@ pow - 제곱, 제곱근[c++](./Day1/)
 [c++](./Day4/operator.cpp)
 [c++](./Day4/operator2.cpp)
 [c++](./Day4/operator3.cpp)
+
+4일차 정리하기
+
+## 5일차
+
+- 상속(Inheritance) : 기존 클래스의 기능을 확장하여 새로운 클래스를 만드는 것
+    - 기본적인 상속 문법
+    ```c++
+        class 부모클래스 {
+            // 멤버변수와 멤버함수
+        };
+        class 자식클래스 : public 부모클래스 {
+            // 부모클래스의 속성과 기능을 상속받음
+        };
+    ```
+    - public 상속(일반적인 상속) : 부모클래스의 기능을 그대로 유지할 수 있어서 가장 일반적으로 사용됨.
+    - protected 상속
+    - private 상속
+    - 생성자는 부모->자식 순서로 호출되고,
+      소멸자는 자식->부모 순서로 호출됨
+
+[c++](./Day5/inheritance.cpp)
+[c++](./Day5/inheritance2.cpp)
+[c++](./Day5/inheritance3.cpp)
+[c++](./Day5/inheritance4.cpp)
+
+- 객체 포인터
+[c++](./Day5/objPointer.cpp)
+[c++](./Day5/objPointer2.cpp)
+[c++](./Day5/objPointer3.cpp)
+[c++](./Day5/objPointer4.cpp)
+[c++](./Day5/objPointer5.cpp)
+[c++](./Day5/objPointer6.cpp)
+
+- virtual function
+[c++](./Day5/virtual.cpp)
