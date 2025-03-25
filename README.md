@@ -340,5 +340,139 @@ is a( 무엇은 무엇이다.) 관계, has a(소유) 관계가 성립해야 한�
 [c++](./Day5/objPointer5.cpp)
 [c++](./Day5/objPointer6.cpp)
 
-- virtual function
+- 가상 함수(virtual function) : 파생 클래스에서 재정의할 것을 약속 받은 멤버함수를 말하며 Base클래스의 멤버 함수에 virtual 키워드를 사용하여 만든다.
+virtual table이 만들어지고 , dynamic binding 으로 동작한다.
 [c++](./Day5/virtual.cpp)
+
+- virtual class - 순수 지정자를 가지는 메서드를 순수 가상함수라고 하며, 이 순수 가상함수를 가지는 클래스
+추상 클래스는 객체를 생성할 수 없다.
+[c++](./Day5/virtual2.cpp)
+
+- 추상 자료형을 이용해서 동적할당된 객체를 참조할때는 메모리 해제 시 참조 타입의 소멸자만 호출되어 메모리 누수가 발생.
+따라서 상위 클래스의 소멸자를 가상으로 만들어 실타입의 소멸자 호출을 유도한다.
+[c++](./Day5/virtual3.cpp)
+
+- static_cast(명시적 형 변환): 컴파일 타임에서 변환을 수행하는 캐스트 연산자
+    ```c++
+        static_cast<변환할_타입>(변환할_값);
+    ```
+[c++](./Day5/static_cast.cpp)
+[c++](./Day5/static_cast2.cpp)
+
+## 6일차
+- dynamic_cast
+    기본 클래스를 참조하는 value를 파생된 클래스에 대한 참조로 변환
+상속관계에서 안전하게 형변환을 지원한다. 업캐스팅
+다운캐스팅 경우는 다형성을 위해서 virtual 메서드가 꼭 있어야 한다.
+dynamic_cast를 이용하여 다운캐스팅 경우는 가상함수가 있어야 한다.
+[c++](./Day6/dynamic_cast.cpp)
+[c++](./Day6/dynamic_cast2.cpp)
+
+- const_cast
+    - 상수성을 제거하거나 추가하는 데 사용되는 타입 캐스팅 연산자
+    ```c++
+        const_cast<new_type>(expression)
+    ```
+[c++](./Day6/const_cast.cpp)
+[c++](./Day6/const_cast2.cpp)
+
+
+[c++](./Day6/reinterpret.cpp)
+
+- 임시 객체(temporary dobject) : 특정 표현식에서 일시적으로 생성되었다가, 해당 표현식이 끝나면 바로 소멸하는 객체를 말함.
+명확한 변수에 할당되지 않으면, 표현식이 끝나면서
+```c++
+    MyClass{ 30 };  // 임시 객체
+```
+[c++](./Day6/tempobj.cpp)
+[c++](./Day6/tempobj2.cpp)
+[c++](./Day6/tempobj3.cpp)
+
+- 단독 소유 스마트 포인터(unique_ptr)
+    - 단독 소유:
+        - 같은 객체를 여러 개의 unique_ptr이 소유할 수 없음
+        - 복사가 불가능하며, std::move()를 통해 소유권을 이동해야 함.
+    - 자동 매모리 해제
+        - unique_ptr이 범위를 벗어나면 자동으로 객체 소멸
+    - 메모리 누수 방지
+        - new와 delete를 직접 사용할 필요 없이 메모리 관리 가능
+
+    ```c++
+    #include <iostream>
+
+    class MyClass {
+    public:
+        MyClass() { std::cout << "MyClass 생성" << std::endl; }
+        ~MyClass() { std::cout << "MyClass 소멸" << std::endl; }
+    };
+
+    int main() {
+        std::unique_ptr<MyClass> ptr1 = std::make_unique<MyClass>(); // 객체 생성
+
+    // ptr1이 범위를 벗어나면 자동으로 메모리 해제됨
+        return 0;
+    }
+    ```
+[c++](./Day6/unique_ptr.cpp)
+
+- 공유 소유 스마트 포인터(shared_ptr) : 여러개의 포인터가 같은 객체를 공유할 수 있는 공유 소유 스마트 포인터
+    - 공유 소유
+        - 여러 개의 shared_ptr이 동일한 객체를 공유할 수 있음
+        - 객체를 참조하는 shared_ptr의 개수를 참조 카운트로 관리
+        - 마지막 shared_ptr이 소멸될 때 객체가 자동 해제됨
+    - 자동 메모리 관리
+        - shared_ptr이 범위를 벗어나거나 nullptr로 설정되면 참조 카운트가 감소
+        - 참조 카운트가 0이되면 객체가 자동으로 삭제됨
+    - 복사 가능하지만, 성능 오버헤드 발생
+        - unique_ptr보다 약간 더 무겁고 느릴 수 있다.
+    - 순환참조 문제 주의 : weak_ptr 사용
+    ```c++
+    #include <iostream>
+
+    class MyClass {
+    public:
+        MyClass() { std::cout << "MyClass 생성" << std::endl; }
+        ~MyClass() { std::cout << "MyClass 소멸" << std::endl; }
+        void func() { std::cout << "shared_ptr 사용 중!" << std::endl; }
+    };
+
+    int main() {
+        // std::make_shared를 사용하여 객체 생성 (C++11 이상)
+        std::shared_ptr<MyClass> ptr1 = std::make_shared<MyClass>();
+
+        // ptr2는 ptr1과 동일한 객체를 공유 (참조 카운트 증가)
+        std::shared_ptr<MyClass> ptr2 = ptr1;
+
+        std::cout << "참조 카운트: " << ptr1.use_count() << std::endl;
+
+        ptr2->func(); // 공유된 객체 사용
+
+        return 0; // 프로그램 종료 시, 마지막 shared_ptr이 소멸되면서 객체가 삭제됨
+    }
+    ```
+[c++](./Day6/shared_ptr.cpp)
+
+- weak_ptr
+    - 객체를 소유하지 않고 shared_ptr이 관리하는 객체를 참조 가능
+    - 참조 카운트 증가 없이 객체를 참조하여 순환참조 문제를 방지
+    - expired()와 lock()을 이용해 객체가 아직 존재하는지 안전하게 확인 가능
+[c++](./Day6/weak_ptr.cpp)
+[c++](./Day6/weak_ptr2.cpp)
+
+
+- STL(Standard Template Library)
+- container: 객체를 저장하고 관리하는 자료구조
+- 컨테이너 종류
+1. 시퀀스 컨테이너 - 선형적으로 데이터 저장(순서), vector, list, queue
+2. 연관 컨테이너 - 일정한 규칙으로 저장, set, multicast, 
+3. 컨테이너 어댑터 - 변형
+
+- vector
+    vector.size(): 원소 크기(갯수)를 반환
+    vector.begin(): 첫번째 주소를 반환
+    vector.end(): 마지막의 다음 주소를 반환
+    v.push_pack(10): 마지막 원소 뒤에 10을 추가한다.
+    v.insert(idx, val): idx번째 위치에 val을 넣는다.
+    v.capacity(): 벡터에 할당된 메모리 크기를 리턴한다.	- v.size()
+[c++](./STL/vector.cpp)
+[c++](./STL/vector2.cpp)
