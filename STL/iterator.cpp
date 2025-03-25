@@ -20,5 +20,5 @@
 //}
 /*
 	vector<int>::iterator iter은 순방향 반복자 선언.
-	근데 이놈을 생략하고 auto선언해도 된다.
+	이를 생략하고 auto선언해도 된다.
 */

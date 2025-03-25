@@ -464,15 +464,29 @@ dynamic_cast를 이용하여 다운캐스팅 경우는 가상함수가 있어야
 - container: 객체를 저장하고 관리하는 자료구조
 - 컨테이너 종류
 1. 시퀀스 컨테이너 - 선형적으로 데이터 저장(순서), vector, list, queue
-2. 연관 컨테이너 - 일정한 규칙으로 저장, set, multicast, 
+2. 연관 컨테이너 - 일정한 규칙으로 저장, set, multiset, map, multimap
 3. 컨테이너 어댑터 - 변형
 
 - vector
     vector.size(): 원소 크기(갯수)를 반환
     vector.begin(): 첫번째 주소를 반환
     vector.end(): 마지막의 다음 주소를 반환
+    vector.rend(): 처음 원소의 이전 주소를 반환
+    vector.back(): 마지막 요소를 반환
     v.push_pack(10): 마지막 원소 뒤에 10을 추가한다.
+    v.pop_back(): 마지막 원소 제거
     v.insert(idx, val): idx번째 위치에 val을 넣는다.
-    v.capacity(): 벡터에 할당된 메모리 크기를 리턴한다.	- v.size()
+    v.capacity(): 벡터에 할당된 메모리 크기를 리턴한다.	
+    v.size(): 벡터의 사이즈를 반환
 [c++](./STL/vector.cpp)
 [c++](./STL/vector2.cpp)
+[c++](./STL/vector3.cpp)
+[c++](./STL/vector4.cpp)
+
+vector<int>::iterator iter은 순방향 반복자 선언.
+    이를 생략하고 auto선언해도 된다.
+[c++](./STL/iterator.cpp)
+vector<int>::reverse_iterator rit - 역방향 반복자 선언
+    이를 생략하고, auto로 선언해도 된다.
+rbegin()은 마지막 주소, rend()은 처음 원소의 이전주소
+[c++](./STL/iterator2.cpp)

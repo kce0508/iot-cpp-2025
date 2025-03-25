@@ -20,6 +20,6 @@ void main()
 }
 /*
 	vector<int>::reverse_iterator rit - 역방향 반복자 선언
-	이놈을 생략하고, auto로 선언해도 된다.
+	이를 생략하고, auto로 선언해도 된다.
 	rbegin()은 마지막 주소, rend()은 처음 원소의 이전주소
 */
